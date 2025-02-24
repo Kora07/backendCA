@@ -26,10 +26,14 @@ app.listen(PORT, async (request, response) => {
     }
 })
 
+app.use(User);
+
+// console.log(app)
+
 app.post("/Signup", async (request, response) => {
     try {
         const info = request.body;
-        
+        await User.save();
 
         response.send(info)
     }
